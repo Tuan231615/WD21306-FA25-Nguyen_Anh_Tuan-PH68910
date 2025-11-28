@@ -3,9 +3,146 @@
 
 #include <stdio.h>
 
+void kiemTraSoNguyen() {
+    menuPhu(1);
+};
+void uocChungBoiChung() {
+    menuPhu(2);
+};
+void tinhTienKaraoke() {
+    menuPhu(3);
+};
+void tinhTienDien() {
+    menuPhu(4);
+};
+void doiTien() {
+    menuPhu(5);
+};
+void tinhLaiNganHang() {
+    menuPhu(6);
+};
+void vayTienMuaXe() {
+    menuPhu(7);
+};
+void sapXepThongTinSV() {
+    menuPhu(8);
+};
+void gameFPOLYLOTT() {
+    menuPhu(9);
+};
+void tinhPhanSo() {
+    menuPhu(10);
+};
+int menuPhu(int cacChucNang) {
+    int flag = 1;
+    int flag1 = 1;
+    while (flag1) {
+        printf("\n-----------Menu Phu-------------\n");
+        printf("Ban co muon tiep tuc khong \n");
+        printf("Co[Chon 1] \n");
+        printf("Khong[Chon 0] \n");
+        printf("--------------------------------\n");
+        printf("\nMoi ban chon: \n");
+        scanf("%d", &flag);
+        switch (flag) {
+        case 1:
+            if (cacChucNang == 1) {
+                kiemTraSoNguyen();
+                break;
+            }
+            else if (cacChucNang == 2) {
+                uocChungBoiChung();
+                break;
+            }
+            else if (cacChucNang == 3) {
+                tinhTienKaraoke();
+                break;
+            }
+            else if (cacChucNang == 4) {
+                tinhTienDien();
+                break;
+            }
+            else if (cacChucNang == 5) {
+                doiTien();
+                break;
+            }
+            else if (cacChucNang == 6) {
+                tinhLaiNganHang();
+                break;
+            }
+            else if (cacChucNang == 7) {
+                vayTienMuaXe();
+                break;
+            }
+            else if (cacChucNang == 8) {
+                sapXepThongTinSV();
+                break;
+            }
+            else if (cacChucNang == 9) {
+                gameFPOLYLOTT();
+                break;
+            }
+            else if (cacChucNang == 10) {
+                tinhPhanSo();
+                break;
+            }
+            break;
+        case 0:
+            printf("Tro ve menu chinh. \n");
+            break;
+        default:
+            printf("Lua chon khong hop le! Vui long chon 1 hoac 0. \n");
+            continue;
+        }
+        flag1 = 0;
+    }
+}
 int main()
 {
-    printf("Hi there!\n");
+    int choice;
+    do {
+        printf("\n---------- MENU ----------\n");
+        printf("1. Kiem tra so nguyen\n");
+        printf("2. Uoc chung || Boi chung\n");
+        printf("3. Tinh tien Karaoke\n");
+        printf("4. Tinh tien dien\n");
+        printf("5. Doi tien\n");
+        printf("6. Tinh lai ngan hang\n");
+        printf("7. Vay tien mua xe\n");
+        printf("8. Sap xep thong tin sinh vien\n");
+        printf("9. Game FPOLY-LOTT\n");
+        printf("10. tinh phan so\n");
+        printf("0. Thoat chuong trinh\n");
+        printf("--------------------------\n");
+        printf("\nMoi ban chon chuc nang: \n");
+        scanf("%d", &choice);
+        switch (choice) {
+        case 1: kiemTraSoNguyen();
+            break;
+        case 2: uocChungBoiChung();
+            break;
+        case 3: tinhTienKaraoke();
+            break;
+        case 4: tinhTienDien();
+            break;
+        case 5: doiTien();
+            break;
+        case 6: tinhLaiNganHang();
+            break;
+        case 7: vayTienMuaXe();
+            break;
+        case 8: sapXepThongTinSV();
+            break;
+        case 9: gameFPOLYLOTT();
+            break;
+        case 10: tinhPhanSo();
+            break;
+        case 0: printf("Thoat chuong trinh.\n");
+            break;
+        default: printf("Lua chon khong hop le. Vui long chon lai [1-10] hoac 0 de thoat.\n");
+            break;
+        }
+    } while (choice != 0);
 }
 
 // Debug/Run chuong trinh: bam "F5" hoac "Debug > Start Debugging" tren menu
