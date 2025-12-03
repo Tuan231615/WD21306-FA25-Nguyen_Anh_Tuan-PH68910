@@ -8,6 +8,7 @@ int main()
     printf("Hi there!\n");
 
 
+
 }
 
 // Debug/Run chuong trinh: bam "F5" hoac "Debug > Start Debugging" tren menu
