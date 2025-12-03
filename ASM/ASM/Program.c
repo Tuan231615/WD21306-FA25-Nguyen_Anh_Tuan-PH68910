@@ -221,7 +221,7 @@ void tinhTienDien() {
                 tienDien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kWh - 300) * 2834;
             }
             else {
-                tienDien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927; l
+                tienDien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kWh - 400) * 2927; 
             }
             printf("Gia dien cua 50 so dau:     1678 VND\n");
             printf("Gia dien tu so 51 den 100:  1734 VND\n");

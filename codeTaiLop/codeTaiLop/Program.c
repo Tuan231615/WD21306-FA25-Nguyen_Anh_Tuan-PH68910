@@ -2,7 +2,7 @@
 // Chuong trinh phan mem Bat dau thuc thi & Ket thuc o day.
 
 #include <stdio.h>
-
+#include <string.h>
 void kiemTraSoNguyen() {
     menuPhu(1);
 };
@@ -97,6 +97,51 @@ int menuPhu(int cacChucNang) {
         flag1 = 0;
     }
 }
+void tongMang() {
+    int n;
+    printf("Nhap so luong phan tu n: \n");
+    scanf("%d", &n);
+    int mang[100];
+    for (int i = 0; i < n; i++) {
+        printf("Moi ban nhap phan tu thu %d cua mang: \n", i);
+        scanf("%d", &mang[i]);
+    }
+    int tong = 0;
+    for (int i = 0; i < n; i++) {
+        tong += mang[i];
+    }
+    printf("Tong cac phan tu cua mang: %d \n", tong);
+}
+void nhapChuoi() {
+    char ten[50];
+    printf("Nhap ten cua ban: ");
+    scanf("%s", &ten);
+    getchar();
+    //puts(ten);
+    fgets(ten, sizeof(ten), stdin);
+    ten[strcspn(ten, "\n")] = '\0';
+    printf("Ten cua ban la: %s\n", ten);
+    //gets(ten);
+    //printf("Ten cua ban: %s", ten);
+}
+void demoMang() {
+    int arr[2][3];
+    for (int i = 0; i <2; i++)
+    {
+        for (int j = 0; j < 3; j++) {
+            printf("Mang[%d][%d] = ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+    for (int i = 0; i <2; i++)
+    {
+        for (int j = 0; j < 3; j++) {
+            printf("%d, ", arr[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
 int main()
 {
     int choice;
@@ -112,6 +157,7 @@ int main()
         printf("8. Sap xep thong tin sinh vien\n");
         printf("9. Game FPOLY-LOTT\n");
         printf("10. tinh phan so\n");
+        printf("11. tinh tong cac so trong mang\n");
         printf("0. Thoat chuong trinh\n");
         printf("--------------------------\n");
         printf("\nMoi ban chon chuc nang: \n");
@@ -136,6 +182,10 @@ int main()
         case 9: gameFPOLYLOTT();
             break;
         case 10: tinhPhanSo();
+            break;
+        case 11: nhapChuoi();
+            break;
+        case 12: demoMang();
             break;
         case 0: printf("Thoat chuong trinh.\n");
             break;
