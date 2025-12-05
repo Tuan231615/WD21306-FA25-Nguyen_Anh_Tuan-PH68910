@@ -29,10 +29,10 @@ void kiemTraSoNguyen() {
         scanf("%f", &soNhap);
         if (soNhap - (int)soNhap == 0) {
             if (laSoNguyenTo(soNhap)) {
-                printf(" %2f la so nguyen to. \n ", soNhap);
+                printf(" %.2f la so nguyen to. \n ", soNhap);
             }
             else if (laSoChinhPhuong(soNhap)) {
-                printf(" %2f la so chinh phuong. \n", soNhap);
+                printf(" %.2f la so chinh phuong. \n", soNhap);
             }
             else {
                 printf("So vua nhap la so nguyen.\n");
@@ -77,12 +77,12 @@ int BCNN(int a, int b) {
 }
 void uocChungBoiChung() {
     int choice = 1;
-    int a, b;
+    float a, b;
     int flag = 1, flag1 = 1;
     int flag2 = 1;
     while (flag2) {
         printf("\nMoi nhap so a: \n");
-        scanf("%d", &a);
+        scanf("%f", &a);
         if (a - (int)a != 0) {
             printf("So a khong phai la so nguyen. Vui long nhap lai!\n");
             printf("--------------------------------\n");
@@ -90,7 +90,7 @@ void uocChungBoiChung() {
         else {
             while (flag) {
                 printf("\nMoi nhap so b: \n");
-                scanf("%d", &b);
+                scanf("%f", &b);
                 while (flag1) {
                     if (b - (int)b != 0) {
                         printf("So b khong phai la so nguyen. Vui long nhap lai!\n");
@@ -112,18 +112,19 @@ float tienHat(int gioVao, int gioRa) {
     int soGio;
     int flag = 1;
     float tienThanhToan;
+    const int giaHat = 150000;
     soGio = gioRa - gioVao;
     if (soGio <= 3) {
         if (gioVao >= 14 && gioVao <= 17) {
-            return tienThanhToan = soGio * 150000 * 0.9;
+            return tienThanhToan = soGio * giaHat * 0.9;
         }
-        return  tienThanhToan = soGio * 150000;
+        return  tienThanhToan = soGio * giaHat;
     }
     else {
         if (gioVao >= 14 && gioVao <= 17) {
-            return tienThanhToan = (3 * 150000 + (soGio - 3) * 150000 * 0.7) * 0.9;
+            return tienThanhToan = (3 * giaHat + (soGio - 3) * giaHat * 0.7) * 0.9;
         }
-        return tienThanhToan = 3 * 150000 + (soGio - 3) * 150000 * 0.7;
+        return tienThanhToan = 3 * giaHat + (soGio - 3) * giaHat * 0.7;
     }
 }
 void tinhTienKaraoke() {
