@@ -142,6 +142,46 @@ void demoMang() {
     }
     
 }
+void demoString() {
+    char mangKyTu[50];
+    printf("Nhap chuoi ky tu: ");
+    scanf("%c", &mangKyTu);
+    fflush(stdin);
+    fgets(mangKyTu, sizeof(mangKyTu), stdin);
+    mangKyTu[strcspn(mangKyTu, "\n")] = '\0';
+
+    printf("string Length: ");
+    printf("%d", strlen(mangKyTu));
+    printf("\n");
+    printf("string compare the same as: ");
+    printf("%d", strcmp("aBc", "aaBc"));
+    printf("\n");
+    printf("String compare less than: ");
+    printf("%d", strcmp("A", "C"));
+    printf("\n");
+    printf("String Compare Greater than: ");
+    printf("%d", strcmp("C", "A"));
+    printf("\n");
+
+    /*printf("String Reverse (Encryption): ");
+    printf("%s", strrev(mangKyTu));
+    printf("\n");*/
+    /*printf("String Reverse (Decryption): ");
+    printf("%s", strrev(mangKyTu));
+    printf("\n");
+    printf("String Lower: ");
+    printf("%s", strlwr(mangKyTu));
+    printf("\n");*/
+    /*printf("String Upper: ");
+    printf("%s", strupr(mangKyTu));*/
+    printf("\n");
+    printf("Pind String in String: ");
+    if (strstr(mangKyTu, "A") != NULL)
+    {
+        printf("Found: ");
+        printf("%s", strstr(mangKyTu, "A"));
+    }
+}
 int main()
 {
     int choice;
@@ -158,6 +198,7 @@ int main()
         printf("9. Game FPOLY-LOTT\n");
         printf("10. tinh phan so\n");
         printf("11. tinh tong cac so trong mang\n");
+        printf("13. Thao tac voi chuoi \n");
         printf("0. Thoat chuong trinh\n");
         printf("--------------------------\n");
         printf("\nMoi ban chon chuc nang: \n");
@@ -187,6 +228,7 @@ int main()
             break;
         case 12: demoMang();
             break;
+        case 13: demoString();
         case 0: printf("Thoat chuong trinh.\n");
             break;
         default: printf("Lua chon khong hop le. Vui long chon lai [1-10] hoac 0 de thoat.\n");

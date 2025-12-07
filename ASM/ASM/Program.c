@@ -581,67 +581,51 @@ PhanSo phepTinhCoBanPhanSo(PhanSo ps1, PhanSo ps2, char toanTu) {
         return rutGonPhanSo(kq);
     }
 }
+void inPhanSo(PhanSo ps, char* chuoi) {
+    printf("%s", chuoi);
+    if (ps.tuSo == ps.mauSo) {
+        printf("1\n");
+    }
+    else if ("ps.mauSo == 1") {
+        printf("%d\n", ps.tuSo);
+    }
+    else {
+        printf("%d/%d\n", ps.tuSo, ps.mauSo);
+    }
+}
 void tinhPhanSo() {
     PhanSo ps1, ps2, kq;
     int flag = 1;
     while (flag) {
         printf("\nNhap phan so thu nhat(tu so va mau so): \n");
         scanf("%d %d", &ps1.tuSo, &ps1.mauSo);
-        printf("\nNhap phan so thu hai(tu so va mau so): \n");
-        scanf("%d %d", &ps2.tuSo, &ps2.mauSo);
-
-
-        /*if (kq.tuSo == kq.mauSo) {
-            printf("Ket qua cua phep cong la 1\n");
-
-        }
-        else if (kq.mauSo == 1) {
-            printf("Ket qua: %d\n", kq.tuSo);
-
-        }*/
-        /*else {*/
-        kq = phepTinhCoBanPhanSo(ps1, ps2, '+');
-        if (kq.tuSo == kq.mauSo) {
-            printf("Ket qua phep cong: 1\n");
-        }
-        else if (kq.mauSo == 1) {
-            printf("Ket qua phep cong: %d \n", kq.tuSo);
+        if (ps1.mauSo == 0) {
+            printf("Mau so khong the bang 0. Vui long nhap lai!\n");
+            continue;
         }
         else {
-            printf("Ket qua phep cong: %d/%d\n", kq.tuSo, kq.mauSo);
+            if (ps1.tuSo == 0) {
+                ps1.mauSo == 0;
+            }
+            printf("\nNhap phan so thu hai(tu so va mau so): \n");
+            scanf("%d %d", &ps2.tuSo, &ps2.mauSo);
+            if (ps2.mauSo == 0) {
+                printf("Mau so khong the bang 0. Vui long nhap lai!\n");
+                continue;
+            }
+            else {
+                kq = phepTinhCoBanPhanSo(ps1, ps2, '+');
+                inPhanSo(kq, "Ket qua phep cong: ");
+                kq = phepTinhCoBanPhanSo(ps1, ps2, '-');
+                inPhanSo(kq, "Ket qua phep tru: ");
+                kq = phepTinhCoBanPhanSo(ps1, ps2, '*');
+                inPhanSo(kq, "Ket qua phep nhan: ");
+                kq = phepTinhCoBanPhanSo(ps1, ps2, '/');
+                inPhanSo(kq, "Ket qua phep chia: ");
+                menuPhu(10);
+                flag = 0;
+            }
         }
-        kq = phepTinhCoBanPhanSo(ps1, ps2, '-');
-        if (kq.tuSo == kq.mauSo) {
-            printf("Ket qua phep tru: 1\n");
-        }
-        else if (kq.mauSo == 1) {
-            printf("Ket qua phep tru: %d \n", kq.tuSo);
-        }
-        else {
-            printf("Ket qua phep tru: %d/%d\n", kq.tuSo, kq.mauSo);
-        }
-        kq = phepTinhCoBanPhanSo(ps1, ps2, '*');
-        if (kq.tuSo == kq.mauSo) {
-            printf("Ket qua phep nhan: 1\n");
-        }
-        else if (kq.mauSo == 1) {
-            printf("Ket qua phep nhan: %d \n", kq.tuSo);
-        }
-        else {
-            printf("Ket qua phep nhan: %d/%d\n", kq.tuSo, kq.mauSo);
-        }
-        kq = phepTinhCoBanPhanSo(ps1, ps2, '/');
-        if (kq.tuSo == kq.mauSo) {
-            printf("Ket qua phep chia: 1\n");
-        }
-        else if (kq.mauSo == 1) {
-            printf("Ket qua phep chia: %d \n", kq.mauSo);
-        }
-        else {
-            printf("Ket qua phep chia: %d/%d\n", kq.tuSo, kq.mauSo);
-        }
-        menuPhu(10);
-        flag = 0;
     }
 }
 int menuPhu(int cacChucNang) {
