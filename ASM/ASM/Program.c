@@ -472,7 +472,7 @@ void sapXepThongTinSV() {
         for (int i = 0; i < n; i++) {
             printf("Ho ten: %-20s | Diem: %.2f | Hoc luc: %-12s\n", sv[i].hoTen, sv[i].diem, sv[i].hocLuc);
         }
-        /*int choice;
+        int choice;
         while (1) {
             printf("Ban co muon nhap them sinh vien khong? [1: Co, 0: Khong]: ");
             scanf("%d", &choice);
@@ -486,9 +486,9 @@ void sapXepThongTinSV() {
             else {
                 printf("Lua chon khong hop le. Vui long chon 1 hoac 0!\n");
             }
-        }*/
-        menuPhu(8);
-        flag = 0;
+        }
+        /*menuPhu(8);
+        flag = 0;*/
     }
 }
 void gameFPOLYLOTT() {
@@ -561,11 +561,24 @@ PhanSo rutGonPhanSo(PhanSo ps) {
 PhanSo phepTinhCoBanPhanSo(PhanSo ps1, PhanSo ps2, char toanTu) {
     PhanSo kq;
     if (toanTu == '+') {
-        kq.tuSo = ps1.tuSo * ps2.mauSo + ps2.tuSo * ps1.mauSo;
-        kq.mauSo = ps1.mauSo * ps2.mauSo;
-        return rutGonPhanSo(kq);
+        if (ps1.tuSo == 0) {
+            return ps2;
+        }
+        else if (ps2.tuSo == 0)
+        {
+            return ps1;
+        }
+        else {
+            kq.tuSo = ps1.tuSo * ps2.mauSo + ps2.tuSo * ps1.mauSo;
+            kq.mauSo = ps1.mauSo * ps2.mauSo;
+            return rutGonPhanSo(kq);
+        }
     }
     else if (toanTu == '-') {
+        if (ps1.tuSo == 0) {
+            kq.tuSo = -ps2.tuSo;
+            kq.mauSo = ps2.mauSo;
+        }
         kq.tuSo = ps1.tuSo * ps2.mauSo - ps2.tuSo * ps1.mauSo;
         kq.mauSo = ps1.mauSo * ps2.mauSo;
         return rutGonPhanSo(kq);
@@ -583,7 +596,7 @@ PhanSo phepTinhCoBanPhanSo(PhanSo ps1, PhanSo ps2, char toanTu) {
 }
 void inPhanSo(PhanSo ps, char* chuoi) {
     printf("%s", chuoi);
-    if (ps.tuSo == ps.mauSo) {
+    if (ps.tuSo == ps.mauSo && ps.tuSo !=0 && ps.mauSo != 0) {
         printf("1\n");
     }
     else if ("ps.mauSo == 1") {
@@ -592,6 +605,7 @@ void inPhanSo(PhanSo ps, char* chuoi) {
     else {
         printf("%d/%d\n", ps.tuSo, ps.mauSo);
     }
+
 }
 void tinhPhanSo() {
     PhanSo ps1, ps2, kq;
@@ -604,9 +618,6 @@ void tinhPhanSo() {
             continue;
         }
         else {
-            if (ps1.tuSo == 0) {
-                ps1.mauSo == 0;
-            }
             printf("\nNhap phan so thu hai(tu so va mau so): \n");
             scanf("%d %d", &ps2.tuSo, &ps2.mauSo);
             if (ps2.mauSo == 0) {
