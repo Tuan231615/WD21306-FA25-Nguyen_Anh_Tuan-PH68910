@@ -20,7 +20,6 @@ void thongTinMonHoc(){
 		while (getchar() != '\n');
 		fgets(mh[i].ten, sizeof(mh[i].ten), stdin);
 		printf("Moi ban nhap ma mon\n");
-		//while (getchar() != '\n');
 		fgets(mh[i].maMon, sizeof(mh[i].maMon), stdin);
 		printf("Moi ban nhap so tin chi: \n");
 		scanf("%d", &mh[i].soTin);
@@ -51,29 +50,55 @@ void tinhTongSoLe(){
 		printf("%d la so le\n", n);
 	}
 }
-struct SinhVien {
-	char ten[50];
-	int diem[3];
-};
+
 void thongTinDiemLab(){
 	int soSV;
-	struct SinhVien sv[100];
+	float diem[100];
+	float tong = 0;
+	float tbc;
+
 	printf("Moi ban nhap so sinh vien:\n");
 	scanf("%d", &soSV);
-	for (int i = 0; i < soSV; i++)
+	if (soSV>0)
 	{
-		printf("Moi ban nhap ten sinh vien: \n");
-		while (getchar() != '\n');
-		fgets(sv[i].ten, sizeof(sv[i].ten), stdin);
-		printf("Moi ban nhap diem: \n");
-		scanf("%d", &sv[i].diem);
+		for (int i = 0; i < soSV; i++)
+		{
+			printf("Moi ban nhap diem lab cua sinh vien: %d\n", i + 1);
+			scanf("%f", &diem[i]);
+		}
+		printf("Danh sach diem lab cua sinh vien: \n");
+		for (int i = 0; i < soSV; i++)
+		{
+			printf("Diem lab cua sinh vien %d la: %.2lf\n", i + 1, diem[i]);
+		}
+		for (int i = 0; i < soSV; i++)
+		{
+			tong += diem[i];
+		}
+		tbc = tong / soSV;
+		printf("Diem trung binh cua lop la: %.2f\n", tbc);
+		float max;
+		for (int i = 0; i < soSV; i++)
+		{
+			max = diem[0];
+				if (diem[i]> max) {
+					max = diem[i];
+			}
+		}
+		printf("Diem lab cao nhat cua lop la: %.2f\n", max);
+		int flag = 0;
+		for (int i = 0; i < soSV; i++)
+		{
+			if (diem[i] >= 5) {
+				flag++;
+			}
+		}
+		printf("So sinh vien dat diem lon hon 5: %d\n", flag);
 	}
-	for (int i = 0; i < soSV; i++)
-	{
-		printf("Sinh vien thu: %d\n", i + 1);
-		printf("Ten sinh vien thu %d: %s\n",i+1, sv[i].ten);
-		printf("Diem sinh vien thu %d: %d\n", i + 1, sv[i].diem);
+	else {
+		printf("So sinh vien khong hop le!\n");
 	}
+	
 };
 int main()
 {
@@ -88,17 +113,26 @@ int main()
 		scanf("%d", &choice);
 		tiepTuc = 1;
 		while (tiepTuc == 1) {
-		switch (choice) {
-		case 1:thongTinMonHoc();
-			break;
-		case 2:tinhTongSoLe(); break;
-		case 3:thongTinDiemLab(); break;
-		case 0:break;
-		default:
-			printf("Moi nhap lai!\n");
-			break;
+			switch (choice) {
+			case 1:thongTinMonHoc();
+				break;
+			case 2:tinhTongSoLe(); 
+				break;
+			case 3:thongTinDiemLab();
+				break;
+			case 0:
+				printf("Thoat chuong trinh!\n");
+				return 0;
+			default:
+				printf("Moi nhap lai!\n");
+				break;
+			}
+			printf("Ban co muon tiep tuc khong? (1: Co, 0: Khong)");
+			scanf("%d", &tiepTuc);
+			if (tiepTuc != 1) {
+				break;
+			}
 		}
-	}
-	} while (choice != 1);
+	} while (choice != 0);
 }
 
